@@ -31,4 +31,4 @@ dining_philosophers: dining_philosophers.c
 	$(CC) -o $@ $(CFLAGS) dining_philosophers.c -lmutl -lm -L.
 
 clean:
-	rm -f *.o libmutl.so thread_test dining_philosophers
+	rm -f *.o libmutl.so dining_philosophers
