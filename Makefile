@@ -19,16 +19,13 @@
 CC=gcc
 CFLAGS=-Wall -g3 -std=gnu99
 
-all:	libmutl.so thread_test dining_philosophers
+all:	libmutl.so dining_philosophers
 
 libmutl.so:	mutl.o
 	$(CC) -shared -o $@ $?
 
 mutl.o:	mutl.c mutl_impl.h
 	$(CC) -c -fpic $(CFLAGS) mutl.c
-
-thread_test: thread_test.c
-	$(CC) -o $@ $(CFLAGS) thread_test.c -lmutl -L.
 
 dining_philosophers: dining_philosophers.c
 	$(CC) -o $@ $(CFLAGS) dining_philosophers.c -lmutl -lm -L.
